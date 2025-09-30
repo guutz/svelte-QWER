@@ -75,7 +75,7 @@
               class:i-mdi-chevron-up={nav.orientation === 0}
               class:i-mdi-chevron-right={nav.orientation === 1}
               class:i-mdi-chevron-down={nav.orientation === 2}
-              class:i-mdi-chevron-left={nav.orientation === 3} />
+              class:i-mdi-chevron-left={nav.orientation === 3}></span>
           {/if}
         </a>
       {:else}
@@ -87,7 +87,7 @@
               class:i-mdi-chevron-up={nav.orientation === 0}
               class:i-mdi-chevron-right={nav.orientation === 1}
               class:i-mdi-chevron-down={nav.orientation === 2}
-              class:i-mdi-chevron-left={nav.orientation === 3} />
+              class:i-mdi-chevron-left={nav.orientation === 3}></span>
           {/if}
         </span>
       {/if}
@@ -126,7 +126,7 @@
                         class:i-mdi-chevron-up={link.orientation === 0}
                         class:i-mdi-chevron-right={link.orientation === 1}
                         class:i-mdi-chevron-down={link.orientation === 2}
-                        class:i-mdi-chevron-left={link.orientation === 3} />
+                        class:i-mdi-chevron-left={link.orientation === 3}></span>
                     {/if}
                   </a>
                 </svelte:self>

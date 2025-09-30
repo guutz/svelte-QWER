@@ -14,8 +14,7 @@
   import { lastUpdatedStr } from '$lib/utils/timeFormat';
   import { afterUpdate, onMount } from 'svelte';
   import { query, result, searching } from '$lib/search/stores';
-  import { LL } from '$i18n/i18n-svelte';
-  import LocaleSwitcher from './locale_switcher.svelte'
+  import { strings } from '$lib/strings';
 
   function resetHome() {
     tagsCur.init();
@@ -164,7 +163,7 @@
                 on:click={theme.toggle}
                 class="btn active:translate-y-2 duration-500 ease-out group">
                 <div
-                  class="!w8 !h8 i-line-md-sunny-outline-loop dark:i-line-md-moon group-hover:(transition-transform duration-300 scale-120 ease-in-out)" />
+                  class="!w8 !h8 i-line-md-sunny-outline-loop dark:i-line-md-moon group-hover:(transition-transform duration-300 scale-120 ease-in-out)"></div>
               </button>
             {/key}
           </div>
@@ -175,9 +174,9 @@
           in:fly|global={{ x: -50, duration: 300, delay: 300 }}
           out:fly|global={{ x: -50, duration: 300 }}>
           <div class="lg:hidden rounded-lg btn btn-ghost !p0">
-            <Dropdown nav={mobilenavConfig.hasOwnProperty(siteConfig.lang) ? mobilenavConfig[siteConfig.lang] : mobilenavConfig['en']} class="text-sm p2 ">
+            <Dropdown nav={mobilenavConfig} class="text-sm p2 ">
               <button aria-label="nav menu" class="flex items-center">
-                <div class="i-mdi-hamburger-menu !w-[1.5rem] !h-[1.5rem]" />
+                <div class="i-mdi-hamburger-menu !w-[1.5rem] !h-[1.5rem]"></div>
               </button>
             </Dropdown>
           </div>
@@ -187,13 +186,13 @@
           </a>
 
           <div class="hidden lg:(flex)">
-            {#each (navConfig.hasOwnProperty(siteConfig.lang)  ? navConfig[siteConfig.lang] : navConfig['en']) as n}
+            {#each navConfig as n}
               <Dropdown class="text-lg px3 py2 btn btn-ghost " nav={n} />
             {/each}
           </div>
 
           <div class="ml-auto flex">
-            {#if $page.route?.id && ['/', '/[lang=lang]'].includes($page.route.id)}
+            {#if $page.route?.id === '/'}
               {#key $page}
                 <button
                   id="search"
@@ -206,15 +205,15 @@
                   out:fade|global={{ duration: 300 }}
                   class="mx2 btn active:translate-y-2 duration-600 ease-out group flex items-center gap2 md:(border-1 border-black/[0.25] dark:border-white/[0.25])">
                   <div
-                    class="!w7 !h7 i-carbon-search group-hover:(transition-transform duration-300 scale-120 ease-in-out)" />
+                    class="!w7 !h7 i-carbon-search group-hover:(transition-transform duration-300 scale-120 ease-in-out)"></div>
                   <label for="#search" class="hidden md:inline-block">
-                    <span class="mx2">{$LL.IndexSearchBox()}</span>
+                    <span class="mx2">{strings.IndexSearchBox()}</span>
                     <kbd>/</kbd>
                   </label>
                 </button>
               {/key}
             {/if}
-            {#if $page.route?.id && ['/', '/[lang=lang]'].includes($page.route.id)}
+            {#if $page.route?.id === '/'}
               <button
                 in:fade|global={{ duration: 300, delay: 300 }}
                 out:fade|global={{ duration: 300 }}
@@ -226,7 +225,7 @@
                 <div
                   class:i-mdi-tag-off={$tagsShowDesktop}
                   class:i-mdi-tag={!$tagsShowDesktop}
-                  class="!w7 !h7 group-hover:(transition-transform duration-300 scale-120 ease-in-out)" />
+                  class="!w7 !h7 group-hover:(transition-transform duration-300 scale-120 ease-in-out)"></div>
               </button>
               <button
                 in:fade|global={{ duration: 300, delay: 300 }}
@@ -239,7 +238,7 @@
                 <div
                   class:i-mdi-tag-off={$tagsShowMobile}
                   class:i-mdi-tag={!$tagsShowMobile}
-                  class="!w7 !h7 group-hover:(transition-transform duration-300 scale-120 ease-in-out)" />
+                  class="!w7 !h7 group-hover:(transition-transform duration-300 scale-120 ease-in-out)"></div>
               </button>
             {/if}
             {#key $theme}
@@ -248,10 +247,9 @@
                 on:click={theme.toggle}
                 class="btn active:translate-y-2 duration-600 ease-out group">
                 <div
-                  class="!w8 !h8 i-line-md-sunny-outline-loop dark:i-line-md-moon group-hover:(transition-transform duration-300 scale-120 ease-in-out)" />
+                  class="!w8 !h8 i-line-md-sunny-outline-loop dark:i-line-md-moon group-hover:(transition-transform duration-300 scale-120 ease-in-out)"></div>
               </button>
             {/key}
-            <LocaleSwitcher />
           </div>
         </div>
       {/if}
@@ -274,12 +272,12 @@
           }}
           type="text"
           name="query"
-          placeholder={$LL.IndexSearchBox()}
+          placeholder={strings.IndexSearchBox()}
           spellcheck="false"
           id="index-search"
           class="grow mx4 px2 h10 rounded bg-transparent border-1 border-black dark:border-white focus:!border-red" />
-        <button class="btn display-inline-block active:translate-y-2 duration-500 ease-out group md:hidden">
-          <div class="!w8 !h8 i-carbon-search group-hover:(transition-transform duration-300 scale-120 ease-in-out)" />
+        <button class="btn display-inline-block active:translate-y-2 duration-500 ease-out group md:hidden" aria-label="submit search">
+          <div class="!w8 !h8 i-carbon-search group-hover:(transition-transform duration-300 scale-120 ease-in-out)"></div>
         </button>
       </form>
       <button
@@ -287,9 +285,9 @@
         class="mx2 btn active:translate-y-2 duration-500 ease-out group flex items-center gap2 md:(border-1 border-black/[0.25] dark:border-white/[0.25])"
         aria-label="close-search"
         id="close-search">
-        <div class="!w8 !h8 i-carbon-close group-hover:(transition-transform duration-300 scale-120 ease-in-out)" />
+        <div class="!w8 !h8 i-carbon-close group-hover:(transition-transform duration-300 scale-120 ease-in-out)"></div>
         <label for="#close-search" class="hidden md:inline-block">
-          <span class="mx2">{$LL.IndexCloseSearchBox()}</span>
+          <span class="mx2">{strings.IndexCloseSearchBox()}</span>
           <kbd>ESC</kbd>
         </label>
       </button>
@@ -310,7 +308,7 @@
     <div
       class="backdrop-blur rounded-full col-start-1 row-start-1 transition-all duration-600 ease-in-out scale-70 relative bg-transparent">
       <div
-        class="absolute z-50 top-[1.85rem] left-[1.85rem] i-mdi-chevron-up !h-[2.5rem] !w-[2.5rem] group-hover:text-black" />
+        class="absolute z-50 top-[1.85rem] left-[1.85rem] i-mdi-chevron-up !h-[2.5rem] !w-[2.5rem] group-hover:text-black"></div>
       <svg
         height="100"
         width="100"
@@ -342,7 +340,7 @@
     <div
       class="backdrop-blur rounded-full col-start-1 row-start-1 transition-all duration-600 ease-in-out scale-70 relative bg-transparent">
       <div
-        class="absolute z-50 top-[1.85rem] left-[1.85rem] i-mdi-chevron-down !h-[2.5rem] !w-[2.5rem] group-hover:text-black" />
+        class="absolute z-50 top-[1.85rem] left-[1.85rem] i-mdi-chevron-down !h-[2.5rem] !w-[2.5rem] group-hover:text-black"></div>
       <svg
         height="100"
         width="100"

@@ -5,7 +5,7 @@
   import tippy from '$lib/actions/tippy';
   import { lastUpdatedStr, defaultPublishedStr, defaultUpdatedStr } from '$lib/utils/timeFormat';
   import AuthorAvatar from '$lib/components/image_avatar.svelte';
-  import LL from '$i18n/i18n-svelte';
+    import { strings } from '$lib/strings';
 
   export let data: Post.Post;
   // Show the coverInPost by default
@@ -32,7 +32,7 @@
       <time
         use:tippy
         class="dt-published"
-        aria-label="{$LL.FirstPublishedAt()} {new Date(data.published).toLocaleString(
+          aria-label="{strings.FirstPublishedAt()} {new Date(data.published).toLocaleString(
           dateConfig.toPublishedString.locales,
           {
             year: 'numeric',
@@ -52,7 +52,7 @@
       </time>
       <span
         use:tippy
-        aria-label="{$LL.LastUpdatedAt()} {new Date(data.updated).toLocaleString(dateConfig.toPublishedString.locales, {
+          aria-label="{strings.LastUpdatedAt()} {new Date(data.updated).toLocaleString(dateConfig.toPublishedString.locales, {
           year: 'numeric',
           month: 'numeric',
           day: 'numeric',
@@ -60,7 +60,7 @@
           minute: 'numeric',
           timeZone: `${siteConfig.timeZone}`,
         })}">
-        {$LL.Updated()}
+          {strings.Updated()}
         {lastUpdatedStr(data.updated)}
       </span>
     </div>

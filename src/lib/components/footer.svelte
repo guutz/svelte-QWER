@@ -4,7 +4,7 @@
   import { postsShow } from '$stores/posts';
   import tippy from '$lib/actions/tippy';
   import { onMount } from 'svelte';
-  import { LL } from '$i18n/i18n-svelte';
+  import { strings } from '$lib/strings';
 
   let className: string | undefined = undefined;
   export { className as class };
@@ -32,10 +32,10 @@
         </div>
         <div class="flex justify-center mt-4">
           <a use:tippy href="/atom.xml" class="btn btn-ghost" aria-label="Atom Feed" data-sveltekit-preload-data="off">
-            <div class="!w-[1.75rem] !h-[1.75rem] i-ic-baseline-rss-feed" />
+            <div class="!w-[1.75rem] !h-[1.75rem] i-ic-baseline-rss-feed"></div>
           </a>
           <a use:tippy href="/sitemap.xml" class="btn btn-ghost" aria-label="Sitemap" data-sveltekit-preload-data="off">
-            <div class="!w-[1.75rem] !h-[1.75rem] i-mdi-sitemap-outline" />
+            <div class="!w-[1.75rem] !h-[1.75rem] i-mdi-sitemap-outline"></div>
           </a>
         </div>
         <p itemprop="copyrightNotice">
@@ -48,7 +48,7 @@
           Powered by
           <a
             use:tippy
-            aria-label={$LL.QWER()}
+            aria-label={strings.QWER()}
             rel="external"
             href="https://github.com/kwchang0831/svelte-QWER"
             class="font-900">

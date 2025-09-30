@@ -95,7 +95,7 @@ npx degit kwchang0831/svelte-QWER my-blog
 
 - 💄 Utilizes [UnoCSS](https://github.com/unocss/unocss) - the instant on-demand atomic CSS engine.
 
-- 🌐 i18n via [typesafe-i18n](https://github.com/ivanhofer/typesafe-i18n).
+- 🌐 Simple single-language setup by default so you can focus on writing content.
 
 - 🚀 Deploy the blog **Free** on [Vercel](https://vercel.com/), [Netlify](https://Netlify.com/), or [Cloudflare Pages](https://pages.cloudflare.com/).
 

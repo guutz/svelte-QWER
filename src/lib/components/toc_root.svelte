@@ -4,7 +4,7 @@
   export let toc: TOC.Heading[] | undefined;
   import { tocCur } from '$stores/toc';
   import { browser } from '$app/environment';
-  import LL from '$i18n/i18n-svelte';
+  import { strings } from '$lib/strings';
 
   let pos = { top: 0, left: 0, x: 0, y: 0 };
 
@@ -179,7 +179,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }
         }}>
-        {$LL.TableOfContent()}
+  {strings.TableOfContent()}
       </span>
       <div
         role="button"
@@ -192,7 +192,7 @@
           }
         }}
         class={upMore ? 'cursor-pointer  hover:bg-gray/[0.5]' : ''}>
-        <div class="i-bxs-chevrons-up w6 h6 m-auto {upMore ? 'op100' : 'op0'}" />
+        <div class="i-bxs-chevrons-up w6 h6 m-auto {upMore ? 'op100' : 'op0'}"></div>
       </div>
       {#if toc && toc.length > 0}
         <ul
@@ -217,7 +217,7 @@
           }
         }}
         class={downMore ? 'cursor-pointer hover:bg-gray/[0.5]' : ''}>
-        <div class="i-bxs-chevrons-down w6 h6 m-auto {downMore ? 'op100 ' : 'op0'}" />
+        <div class="i-bxs-chevrons-down w6 h6 m-auto {downMore ? 'op100 ' : 'op0'}"></div>
       </div>
     </div>
   </aside>

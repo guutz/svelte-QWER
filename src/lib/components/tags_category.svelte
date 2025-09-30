@@ -41,7 +41,7 @@
   <div
     class="{expanded
       ? 'i-tabler-fold-down'
-      : 'i-tabler-fold-up'} display-inline-block !w-[1.25rem] !h-[1.25rem] ml-auto" />
+      : 'i-tabler-fold-up'} display-inline-block !w-[1.25rem] !h-[1.25rem] ml-auto"></div>
 </div>
 
 {#if expanded && tags}

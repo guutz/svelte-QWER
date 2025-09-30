@@ -25,34 +25,19 @@
   NProgress.configure({ minimum: 0.2, easing: 'ease', speed: 600 });
   $: $navigating ? NProgress.start() : NProgress.done();
 
-  import { setLocale } from '$i18n/i18n-svelte';
-  import { loadLocale } from '$i18n/i18n-util.sync';
+  import { browser } from '$app/environment';
   import { siteConfig } from '$config/site';
-  import { locales, baseLocale } from '$i18n/i18n-util';
-
-  import type { Locales } from '$i18n/i18n-types.js'
-
-  import { page } from '$app/stores';
-  let lang = $page.url.pathname.split('/')[1];
-  let specifyLang: Locales = lang as Locales;
-
-  if (locales.includes(specifyLang)) {
-    loadLocale(specifyLang);
-    setLocale(specifyLang);
-    siteConfig.lang = specifyLang;
-  }
-  else if (locales.includes(siteConfig.lang)) {
-    loadLocale(siteConfig.lang);
-    setLocale(siteConfig.lang);
-  } else {
-    loadLocale(baseLocale);
-    setLocale(baseLocale);
-  }
-
   import { onMount } from 'svelte';
-  import { partytownSnippet } from '@builder.io/partytown/integration';
+  import { partytownSnippet } from '@qwik.dev/partytown/integration';
   let scriptEl: any;
-  onMount(() => scriptEl && (scriptEl.textContent = partytownSnippet()));
+  onMount(() => {
+    if (scriptEl) {
+      scriptEl.textContent = partytownSnippet();
+    }
+    if (browser) {
+      document.documentElement.setAttribute('lang', siteConfig.lang);
+    }
+  });
 </script>
 
 <svelte:head>

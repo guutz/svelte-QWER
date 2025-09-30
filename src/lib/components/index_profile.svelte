@@ -40,7 +40,7 @@
         rel="author external"
         class="btn btn-ghost"
         aria-label="Email">
-        <div class="!w-[1.75rem] !h-[1.75rem] i-ic-baseline-mail" />
+        <div class="!w-[1.75rem] !h-[1.75rem] i-ic-baseline-mail"></div>
       </a>
     {/if}
     {#if siteConfig.author.github}
@@ -50,7 +50,7 @@
         rel="author external"
         class="u-url u-uid btn btn-ghost"
         aria-label="Github">
-        <div class="!w-[1.75rem] !h-[1.75rem] i-carbon-logo-github" />
+        <div class="!w-[1.75rem] !h-[1.75rem] i-carbon-logo-github"></div>
       </a>
     {/if}
     {#if siteConfig.author.twitter}
@@ -60,7 +60,7 @@
         rel="author external"
         class="u-url u-uid btn btn-ghost"
         aria-label="Twitter">
-        <div class="!w-[1.75rem] !h-[1.75rem] i-carbon-logo-twitter" />
+        <div class="!w-[1.75rem] !h-[1.75rem] i-carbon-logo-twitter"></div>
       </a>
     {/if}
   </div>

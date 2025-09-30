@@ -20,15 +20,9 @@ const config = {
       $assets: './user/assets',
       $custom: './user/custom',
       $static: './static',
-      $i18n: './src/i18n',
     },
     prerender: {
-      entries: ['/en', '/ja', '/zh', '/zh-Hans', '/zh-Hant',
-        '/example',
-        '/hello-QWER',
-        '/quick-start',
-        '/versions.json'
-      ]
+      entries: ['*']
     }
   },
 };

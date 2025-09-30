@@ -8,7 +8,7 @@ import transformerVariantGroup from '@unocss/transformer-variant-group';
 import transformerCompileClass from '@unocss/transformer-compile-class';
 import { imagetools } from 'vite-imagetools';
 import path from 'path';
-import { partytownVite } from '@builder.io/partytown/utils';
+import { partytownVite } from '@qwik.dev/partytown/utils';
 import { readFileSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { defineConfig } from 'vite';
@@ -77,7 +77,6 @@ export default defineConfig({
       $QWER: path.resolve('.', 'QWER'),
       $generated: path.resolve('.', 'src/generated'),
       $stores: path.resolve('.', 'src/lib/stores'),
-      $i18n: path.resolve('.', 'src/i18n'),
       $config: path.resolve('.', 'user/config'),
       $assets: path.resolve('.', 'user/assets'),
       $custom: path.resolve('.', 'user/custom'),

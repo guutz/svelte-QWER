@@ -27,7 +27,7 @@
 </script>
 
 {#if formattedTags}
-  <div class="divider" />
+  <div class="divider"></div>
 
   <div class="flex gap-x-2 mx8 flex-wrap">
     {#each formattedTags as tag}

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import LL from '$i18n/i18n-svelte';
+  import { strings } from '$lib/strings';
   import { slide, fly } from 'svelte/transition';
   import TagsCategory from '$lib/components/tags_category.svelte';
   let scrollY = 0;
@@ -171,10 +171,10 @@
       on:keydown={(e) => {
         if (e.key === 'Enter') toggle();
       }}>
-      <h2 class:expaned class="text-2xl my2">{$LL.Tags()}</h2>
+  <h2 class:expaned class="text-2xl my2">{strings.Tags()}</h2>
 
       <div
-        class="{expaned ? 'i-tabler-fold-down' : 'i-tabler-fold-up'} display-inline-block !w-[1.75rem] !h-[1.75rem]" />
+        class="{expaned ? 'i-tabler-fold-down' : 'i-tabler-fold-up'} display-inline-block !w-[1.75rem] !h-[1.75rem]"></div>
     </div>
     <form on:submit|preventDefault class="flex items-center relative">
       <input
@@ -186,7 +186,7 @@
             handleInput();
           }
         }}
-        placeholder={$LL.FilterTags()}
+  placeholder={strings.FilterTags()}
         class="my2 px2 py1 bg-transparent border-2 border-x-2 border-black/[0.5] dark:border-white/[0.5] rounded flex-1" />
       {#if input && input.length > 0}
         <div
@@ -207,7 +207,7 @@
               handleInput();
             }
           }}>
-          <div class="i-carbon-close-filled !w6 !h6" />
+          <div class="i-carbon-close-filled !w6 !h6"></div>
         </div>
       {/if}
     </form>
@@ -223,7 +223,7 @@
         }
       }}
       class="hidden xl:(block py1) {upMore ? 'cursor-pointer  hover:bg-gray/[0.5]' : ''}">
-      <div class="i-bxs-chevrons-up w6 h6 m-auto {upMore ? 'op100' : 'op0'}" />
+  <div class="i-bxs-chevrons-up w6 h6 m-auto {upMore ? 'op100' : 'op0'}"></div>
     </div>
     {#key curTags}
       {#if expaned}
@@ -252,7 +252,7 @@
         }
       }}
       class="hidden xl:(block py1) {downMore ? 'cursor-pointer hover:bg-gray/[0.5]' : ''}">
-      <div class="i-bxs-chevrons-down w6 h6 m-auto {downMore ? 'op100 ' : 'op0'}" />
+  <div class="i-bxs-chevrons-down w6 h6 m-auto {downMore ? 'op100 ' : 'op0'}"></div>
     </div>
   </div>
 {/if}

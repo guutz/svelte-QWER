@@ -18,7 +18,7 @@
   import { theme } from '$stores/themes';
   import { onMount } from 'svelte';
   import { fade, fly } from 'svelte/transition';
-  import LL from '$i18n/i18n-svelte';
+  import { strings } from '$lib/strings';
 
   const thisPost = $postsAll.get($page.route?.id?.substring(1) ?? '') as Post.Post;
   const prevPost = thisPost?.prev ? $postsAll.get(thisPost.prev) : undefined;
@@ -116,7 +116,7 @@
         class="h-[20rem] flex flex-col items-center justify-center gap4"
         in:fade|global={{ duration: 300, delay: 300 }}
         out:fade|global={{ duration: 300 }}>
-        <h2 class="text-3xl">{$LL.LoadingPost()}</h2>
+  <h2 class="text-3xl">{strings.LoadingPost()}</h2>
         <div class="i-line-md-loading-twotone-loop !h-16 !w-16" />
       </div>
     {/if}

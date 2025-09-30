@@ -66,9 +66,9 @@
         }}
         class="cursor-pointer z10 !w-[1.25rem] !h-[1.25rem] inline-block transition-transform duration-300 ease-out shrink-0 {expanded
           ? 'i-akar-icons-circle-chevron-up active:translate-y--1 hover:i-akar-icons-circle-chevron-up-fill'
-          : 'i-akar-icons-circle-chevron-down active:translate-y-1 hover:i-akar-icons-circle-chevron-down-fill'}" />
+          : 'i-akar-icons-circle-chevron-down active:translate-y-1 hover:i-akar-icons-circle-chevron-down-fill'}"></span>
     {:else}
-      <span class="!w-[1.25rem] !h-[1.25rem] i-akar-icons-circle inline-block shrink-0" />
+      <span class="!w-[1.25rem] !h-[1.25rem] i-akar-icons-circle inline-block shrink-0"></span>
     {/if}
     <span
       class="{$tocCur.get(content.slug)
